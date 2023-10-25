@@ -29,9 +29,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-        env:
-          FLASK_APP: hello.py
-          FLASK_ENV: development
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
@@ -61,20 +58,10 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      # - name: Create startup script
-      #   run: echo 'python3 hello.py' > start.sh
-      # - name: Make startup script executable
-      #   run: chmod +x start.sh
-
-      # - name: Deploy to Azure Web App
-      #   run: |
-      #     az webapp up --name testingwebscrap --resource-group test --sku B1 --location eastus
-      #     az webapp config set --name testingwebscrap --resource-group test --startup-file start.sh
-
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'testingwebscrap'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_50A33C5592944E439D1811FBC04A6079 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C5929850C4F241DEB261625111BB85B5 }}

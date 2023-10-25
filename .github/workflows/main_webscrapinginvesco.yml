@@ -64,4 +64,4 @@ jobs:
         with:
           app-name: 'webscrapinginvesco'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_735972769DA546E1933520061C9D5CC0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_33913D474D454BE0844530AA1F3A2127 }}
